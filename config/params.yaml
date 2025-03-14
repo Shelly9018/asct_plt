@@ -1,0 +1,17 @@
+# Python index start from 0 and MATLAB index start from 1. So, we need to subtract 1 from the MATLAB index to get the Python index.
+# Following are the parameters for the model.
+params_avg: # Parameters for the average data set from 53 patients.
+  p_c: [0.027, 0.035, 0.808, 1.52, 0.16, 0.16] # p_c[0:4] are the proliferation rate of HSC, MPP, CMP, and MEP. p_c[4:6] are the endomitosis duration for megakaryoblast and megakaryocayte.
+  a_c: [0.877, 0.854, 0.853, 0.688] # self-renewal probability of HSC, MPP, CMP, and MEP.
+  k_p: 1.4e-9 # Postive constant factor of the feedback signal that affect proliferation rate.
+  k_a: 5.4e-11 # Positive constant factor of the feedback signal that affect self-renewal probability.
+  d_plt: 0.19 # Platelets clearance rate.
+  k_decline: 0.345 # Residual platelets clearance rate.
+  k_shed: 1037 # Shedding factor of megakaryocytes.
+
+# Later parameters are for individual patients. They follow the same format as we use for the average data set.
+# Some patients are lack of the platelets data at day 0, so we use the curve fitting(f=ae^(-bx))result 'a' from MATLAB as the initial value for c[7], residual platelets and b is the value for k_decline.
+# Based on identifiability analysis, these parameters value are fixed during optimization:
+# p_c[0]=0.027, p_c[1]=0.035, p_c[3]=1.52, a_c[0]=0.877, k_p=1.4e-9, d_plt=0.19, k_shed=1037
+
+# Slow group:
