@@ -4,48 +4,40 @@
 
 ## 1. Project Overview
 
-This is a mathematical model to simulate platelets engraftment after bone marrow transplantation. It is implemented mainly in python but using **fmincon** from MATLAB to fit model with patients clinical data. 
+This is a mathematical model to simulate platelets engraftment after bone marrow transplantation. It is implemented mainly in **Python** but using **fmincon** from MATLAB to fit model with patients clinical data. 
 
 **key words: Bone marrow transplantation; Platelet formation; Mathematical model; Ordinary differential equations** 
 
 ## 2. Code Structure
 
-├── data/ # Data directory
+├── data/ 			   		 # Data directory
 
-│└── data.csv # Average value of clinical data
+│└── data.csv 		   		 # Average value of clinical data
 
 │
 
-├── config/ # Configuration directory
+├── config/ 			  		# Configuration directory
 
-│└── parameters.yaml # Model parameter file
+│└── params.yaml 	    		# Model parameter file
 │
 
-├── optimization/ # MATLAB code for parameter optimization
+├── optimization/ 	      		 # MATLAB code for parameter optimization
 
-│├── figures/ # Generated plots (PNG/PDF)
+│├── Obj_Avg.m 				 # Objective function to fit model with average platelet value
 
-│├──
+│├── ODE.m 					# ODE model we built to simulate platelet formation after transplantation
 
-### Mathematical model
+│└── Optimization.m 	                 # Parameter optimization with fmincon
 
-**PlateletsModel.py** (Need to delete a lot of model from the class)
+├── Analysis_RecoveryTime.py	 # Use different initial state of CD34+ cell counts and record the platelet recovery time
 
-**BMT.py**
+├── GSA_PRCC.py				# Global sensitivity analysis of our model
 
-**MK_7_config.yaml** (Config file need to change the name and clean part of the comment)
+├── ODESolver.py				# ODE Solver we use to simulate our model
 
-### ODE Solver
+├── PlateletsModel.py			# Our ODE model
 
-**ODESolver.py** (Citation of the Oslo University Instruction)
-
-### Parameters Optimization
-
-**Optimization_MultiTest.m**
-
-**Obj_Avg.m**
-
-**ODE_7.m**(Maybe change the name to ODE model)
+└──  Simulation_Average.py	      # Model Simulation that fits the average platelet value 
 
 ## 3. Environment Setup
 
@@ -59,4 +51,4 @@ This is a mathematical model to simulate platelets engraftment after bone marrow
 
 If you use this code or data, please cite:
 
-> Author et al. (2024). "Title", *iScience*. [DOI to be added]
+> Author et al. (2025). "Title", *iScience*. [DOI to be added]

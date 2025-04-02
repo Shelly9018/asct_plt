@@ -17,11 +17,11 @@ def solve_ODE(ODEmodel, initial, time, params, event_func=None):
 para_label=['p1','p2','p3','p4','e5','e6','a1','a2','a3','a4','kp','d7','k_shed','dummy']
 output_label=['c1(HSC)','c2(MPP)','c3(CMP)','c4(MEP)','c5(Mk-blast)','c6(Mk)','c7(Platelets)']
 # lower and upper bounds for the parameters
-lb = np.asarray([0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 1])  # lower bound
-ub = np.asarray([0.05,  0.2, 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 15,  0.2, 5.0, 10])  # upper bound
+lb = np.asarray([0.001, 0.001, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 1])  # lower bound
+ub = np.asarray([0.05,  0.2,   2.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 15,  0.2, 5.0, 10])  # upper bound
 # number of parameters + 1 dummy parameter
 num_params = 13+1
-# number of sampling
+# 1000 sampling based on Latin Hypercube Sampling
 runs = 1000
 sampler = qmc.LatinHypercube(d=num_params)
 sample = sampler.random(n=runs)
