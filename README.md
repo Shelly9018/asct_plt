@@ -19,6 +19,7 @@ This is a mathematical model to simulate platelets engraftment after autologous 
 ├── config/ 			  		 # Configuration directory
 
 │└── params.yaml 	    		 # Model parameter file
+
 │
 
 ├── optimization/ 	      		 # MATLAB code directory
@@ -35,9 +36,7 @@ This is a mathematical model to simulate platelets engraftment after autologous 
 
 ├── PlateletsModel.py			# ODE model implementation
 
-├── Simulation_cd34_average.py     # (Figure 4) Simulation using different initial CD34+ 
-
-​								 # cell counts to record platelet recovery time
+├── Simulation_cd34_average.py     # (Figure 4) Simulation using different initial CD34+ cell counts to record platelet recovery time
 
 ├── Simulation_fit.py	                  # (Figure 3 and S2) Model Simulation that fits the clinical data
 
@@ -56,16 +55,16 @@ This is a mathematical model to simulate platelets engraftment after autologous 
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/yourusername/asct_plt.git
-   cd asct_plt
-   ```
+```bash
+git clone https://github.com/yourusername/asct_plt.git
+cd asct_plt
+```
 
 2. Install Python dependencies:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 
 3. Ensure MATLAB is installed and accessible if you need to run parameter optimization.
 
@@ -107,9 +106,9 @@ To optimize model parameters:
 
 3. Run:
 
-   ```matlab
-   Optimization
-   ```
+```matlab
+Optimization
+```
 
    
 
