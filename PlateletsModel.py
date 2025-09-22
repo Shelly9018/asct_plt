@@ -8,17 +8,18 @@ class Thrombopoiesis:
         # this is an ode model for platelets engraftment, which includes seven different cell states and one residual platelets compartment.
         p_c = self.parameters["p_c"]  # proliferation rate
         a_c = self.parameters["a_c"]  # self-renewal
-        k_p = self.parameters["k_p"]
-        k_a = self.parameters["k_a"]
+        k_p = self.parameters["k_p"]  # positive constant in feedback signal for proliferation rate
+        k_a = self.parameters["k_a"]  # positive constant in feedback signal for self-renewal
         d_platelets = self.parameters["d_plt"]  # clearance of mature platelets
         k_decline = self.parameters["k_decline"]  # decline rate of platelets
         k_shed = self.parameters["k_shed"]  # shedding rate of megakaryocytes
 
         c = np.asarray(cells)
         dcdt = np.zeros(len(c))
+        # Equ.9 and Equ.10 in Method details section
         s_p = 1 / (1 + k_p * (c[6]+c[7]))
         s_a = 1 / (1 + k_a * (c[6]+c[7]))
-
+        # Equ.1 to Equ.8 in Method details section
         dcdt[0] = (2 * a_c[0] * s_a - 1) * p_c[0] * s_p * c[0]  # HSC
         dcdt[1] = (2 * a_c[1] * s_a - 1) * p_c[1] * s_p * c[1] + 2 * (1 - a_c[0] * s_a) * p_c[0] * s_p * c[0]  # MPP
         dcdt[2] = (2 * a_c[2] * s_a - 1) * p_c[2] * s_p * c[2] + 2 * (1 - a_c[1] * s_a) * p_c[1] * s_p * c[1]  # CMP

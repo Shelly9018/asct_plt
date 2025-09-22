@@ -47,6 +47,6 @@ for i = 1:length(Days)
    obj_temp = c(row(i), 7)+c(row(i), 8) - Average_plt(i)*5e9/70;
    obj_sim = obj_sim+(obj_temp/1e10)^2;
 end
-
+% Equ.18, final objective function:
 obj = obj_equ/6 + obj_sim/length(Days);
 end

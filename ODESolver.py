@@ -41,7 +41,7 @@ class ODESolver:
                 event_t = self.t[n+1]
                 event_u = self.u[n+1]
                 print(f"Event triggered at t={event_t}, u={event_u}")
-                return self.u[:n+2], self.t[:n+2], event_t, event_u
+                return self.u[:n+2], self.t[:n+2], event_u, event_t
         return self.u, self.t, event_u, event_t
 
 class Logistic:
